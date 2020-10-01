@@ -1,18 +1,52 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div class="home-view">
+		<img class="logo" alt="NA-J logo" :src="logo">
+		<div class="description">
+			Strona w budowie...
+			<hr class="line" />
+		</div>
+	</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import logo from '@/Assets/Images/logo/logo.svg'
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+	name: 'Home',
+	data() {
+		return {
+			logo
+		}
+	}
 }
 </script>
+
+<style lang="scss" scoped>
+	.home-view {
+		width: 100%;
+		height: calc(100% - 100px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-weight: normal;
+		.logo {
+			width: 450px;
+			max-width: 100%;
+			animation: bounce 0.5s both;
+		}
+		.description {
+			font-size: 30px;
+			margin: 30px 0 0 0;
+			animation: elation 0.3s 0.5s both;
+		}
+		.line {
+			width: 100px;
+			height: 3px;
+			background-color: $decorative;
+			border: none;
+			margin: 0 auto;
+			border-radius: 3px;
+		}
+	}
+</style>

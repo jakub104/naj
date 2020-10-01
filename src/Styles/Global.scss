@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;600&display=swap');
+@import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+@import "@/Styles/Variables.scss";
+* {
+	box-sizing: border-box;
+	::after,
+	::before {
+		box-sizing: border-box;
+	}
+}
+html {
+	height: 100%;
+}
+body {
+	min-height: 100%;
+	margin: 0;
+	background-color: $bg;
+	color: $primary;
+	font-size: 16px;
+	font-family: 'Baloo Tammudu 2', sans-serif;
+	#app {
+		height: calc(100 * var(--vh));
+	}
+}
