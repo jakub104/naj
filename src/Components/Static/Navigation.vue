@@ -17,7 +17,7 @@
 				<router-link class="nav-link" to="/kontakt">Kontakt</router-link>
 			</li>
 		</ul>
-		<div class="line" :style="{left: `${lineMoved}px`, width: `${lineWidth}px`}"/>
+		<div class="line" :style="{left: `${lineMoved}px`, width: `${lineWidth}px`, opacity: lineMoved ? '1': '0'}"/>
 		<div :class="['hamburger-menu', {'hamburger-active': activeMenu}]" @click="activeMenu = !activeMenu">
 			<div class="hamburger-line" />
 			<div class="hamburger-line" />
@@ -57,6 +57,15 @@
 			}
 		},
 		mounted() {
+			if (window.innerWidth < 700) {
+				this.activeMenu = false
+			}
+			else {
+				setTimeout(() => {
+					this.lineMoved = document.getElementById('/').getBoundingClientRect().left
+					this.lineWidth = document.getElementById('/').getBoundingClientRect().width
+				}, 1500)
+			}
 			window.addEventListener("resize", () => {
 				if (window.innerWidth < 700 && this.activeMenu) {
 					this.activeMenu = false
@@ -73,11 +82,6 @@
 					}
 				}
 			});
-			if (window.innerWidth < 700) {
-				this.activeMenu = false
-			}
-			this.lineMoved = document.getElementById('/').getBoundingClientRect().left + 20
-			this.lineWidth = document.getElementById('/').getBoundingClientRect().width
 		}
 	}
 </script>
@@ -179,6 +183,9 @@
 							color: $primary;
 						}
 					}
+					.router-link-active {
+						font-weight: normal;
+					}
 				}
 			}
 		}
@@ -188,6 +195,7 @@
 			width: 30px;
 			margin-bottom: 10px;
 			animation: leftElation 0.3s 1s both;
+			cursor: pointer;
 			@media (min-width: 700px) {
 				display: none;
 			}
@@ -232,8 +240,7 @@
 			height: 2px;
 			display: none;
 			background-color: $primary;
-			transition: 0.5s ease;
-			animation: opacity 0.3s 1.5s both;
+			transition: all 0.5s ease;
 			@media (min-width: 700px) {
 				display: flex;
 			}

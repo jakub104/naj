@@ -1,5 +1,5 @@
 module.exports = {
-	publicPath: process.env.NODE_ENV === 'production' ? '/na-j/' : '/',
+	publicPath: process.env.NODE_ENV === 'production' ? '/naj/' : '/',
 		pwa: {
 			name: 'NA-J',
 			themeColor: '#202020',
