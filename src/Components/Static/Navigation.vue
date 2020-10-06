@@ -174,6 +174,11 @@
 				flex-direction: row;
 				align-items: flex-end;
 				background-color: transparent;
+				border-bottom: none;
+				&::after {
+					content: '';
+					display: none;
+				}
 				.nav-item {
 					margin: 0 10px;
 					&:nth-child(1) {
