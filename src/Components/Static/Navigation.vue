@@ -123,6 +123,16 @@
 			z-index: 2;
 			transform-origin: top;
 			animation: mobileMenu 0.5s both;
+			border-bottom: 2px solid $primary;
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: 7px;
+				width: 30px;
+				height: 4px;
+				background-color: $secondary;
+				border-radius: 4px;
+			}
 			.nav-item {
 				margin: 10px 0;
 				text-transform: uppercase;
