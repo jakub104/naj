@@ -27,13 +27,15 @@
 	.content {
 		width: 100%;
 		max-width: 1400px;
-		height: calc(100% - 180px);
-		/* min-height: 350px; */
+		height: calc(100% - 160px);
 		margin: 0 auto;
 		padding: 20px;
 		text-align: center;
 		animation: bottomElation 0.5s 1s both;
 		overflow-y: scroll;
+		@media (min-width: 700px) {
+			height: calc(100% - 180px);
+		}
 		&::-webkit-scrollbar {
 			width: 5px;
 		}

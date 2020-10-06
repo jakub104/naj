@@ -2,12 +2,17 @@
 	<div class="home-view">
 		<img class="preview-image" :src="home" alt="home">
 		<div class="description">
-			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae, quod incidunt ullam repudiandae tempora nulla nam quaerat dolore blanditiis est, a odio explicabo consequuntur tenetur? Dolores optio corrupti ipsa delectus.
-			Doloremque harum pariatur eveniet velit, eius molestiae rerum minima voluptates alias! Non corporis mollitia eum tempore asperiores alias aliquam ipsa nam culpa cupiditate, sit obcaecati omnis reiciendis, corrupti quibusdam iste!
-			Aliquid quisquam culpa, consequuntur molestias dolorum quia illo veritatis voluptatum tempore itaque consectetur numquam nam explicabo. Iure, culpa. Cumque, optio ad harum aspernatur ex maiores rem accusantium unde quos reprehenderit.
+			Jesteśmy firmy remontowo-budowlaną, działamy na terenie województwa pomorskiego.
+			Od ponad 13 lat pomagamy spełniać <b>Na-J</b>większe marzenia o własnym domu.
+			Dostosowujemy nasze usługi do potrzeb każdego inwestora.
+			Realizujemy budowy domów jednorodzinnych i wielorodzinnych od organizacji nadzoru budowlanego i placu budowy poprzez budowę fundamentów, murów, stropów, aż po dach.
+			Wykonujemy też remonty, docieplenia, elewacje, budujemy ogrodzenia i mury oporowe.
+			W całym procesie budowy doradzamy i wspieramy swoją wiedzą i doświadczeniem.
+			Każdą inwestycję wykonujemy z <b>Na-J</b>wyższą starannością oraz pełnym zaangażowaniem.
+			Działamy zgodnie z zasadami sztuki budowlanej, korzystając ze sprawdzonych metod i materiałów budowlanych, dzięki czemu mamy pewność, że jakość naszych usług sprosta <b>Na-J</b>wyższym oczekiwaniom nawet <b>Na-J</b>bardziej wymagającego klienta.
 		</div>
 		<div class="site-preview">
-			<img class="site-image" src="https://picsum.photos/500/300" alt="">
+			<div class="site-image" :style="{backgroundImage: `url(${offer})`}" />
 			<div class="site-ad">
 				<h3 class="site-title">Oferta</h3>
 				<p class="site-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, officia ullam libero ad nisi nulla. Nemo, doloribus! Aperiam assumenda vitae culpa dicta magnam! Nulla numquam unde excepturi nesciunt magnam a?</p>
@@ -15,7 +20,7 @@
 			</div>
 		</div>
 		<div class="site-preview">
-			<img class="site-image" src="https://picsum.photos/500/300" alt="">
+			<div class="site-image" :style="{backgroundImage: `url(${realizations})`}" />
 			<div class="site-ad">
 				<h3 class="site-title">Realizacje</h3>
 				<p class="site-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, officia ullam libero ad nisi nulla. Nemo, doloribus! Aperiam assumenda vitae culpa dicta magnam! Nulla numquam unde excepturi nesciunt magnam a?</p>
@@ -23,7 +28,7 @@
 			</div>
 		</div>
 		<div class="site-preview">
-			<img class="site-image" src="https://picsum.photos/500/300" alt="">
+			<div class="site-image" :style="{backgroundImage: `url(${contact})`}" />
 			<div class="site-ad">
 				<h3 class="site-title">Kontakt</h3>
 				<p class="site-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, officia ullam libero ad nisi nulla. Nemo, doloribus! Aperiam assumenda vitae culpa dicta magnam! Nulla numquam unde excepturi nesciunt magnam a?</p>
@@ -34,12 +39,20 @@
 </template>
 
 <script>
-import home from '@/Assets/Images/home.jpeg'
+import logo from '@/Assets/Images/logo/logo.svg'
+import home from '@/Assets/Images/home/home.jpeg'
+import offer from '@/Assets/Images/home/offer.jpg'
+import realizations from '@/Assets/Images/home/realizations.jpg'
+import contact from '@/Assets/Images/home/contact.jpg'
 export default {
 	name: 'Home',
 	data() {
 		return {
-			home
+			logo,
+			home,
+			offer,
+			realizations,
+			contact
 		}
 	}
 }
@@ -66,10 +79,15 @@ export default {
 				flex-direction: row-reverse;
 			}
 			.site-image {
+				width: 500px;
+				max-width: 100%;
+				height: 300px;
+				background: no-repeat center center;
+				background-size: cover;
 				border-radius: 20px;
 			}
 			.site-ad {
-				margin: 50px;
+				margin: 50px 30px;
 				width: 500px;
 				.site-title {
 					position: relative;

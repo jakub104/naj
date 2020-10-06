@@ -3,7 +3,7 @@
 		<router-link to="/">
 			<img class="logo" :src="logo" alt="NA-J logo">
 		</router-link>
-		<ul class="nav-list">
+		<ul v-if="activeMenu" class="nav-list">
 			<li id="/" class="nav-item">
 				<router-link class="nav-link" to="/" exact>O nas</router-link>
 			</li>
@@ -17,8 +17,12 @@
 				<router-link class="nav-link" to="/kontakt">Kontakt</router-link>
 			</li>
 		</ul>
-		<div class="nav-list-mobile">x</div>
 		<div class="line" :style="{left: `${lineMoved}px`, width: `${lineWidth}px`}"/>
+		<div :class="['hamburger-menu', {'hamburger-active': activeMenu}]" @click="activeMenu = !activeMenu">
+			<div class="hamburger-line" />
+			<div class="hamburger-line" />
+			<div class="hamburger-line" />
+		</div>
 	</nav>
 </template>
 
@@ -30,23 +34,48 @@
 			return {
 				logo,
 				lineMoved: 0,
-				lineWidth: 0
+				lineWidth: 0,
+				activeMenu: true
 			}
 		},
 		watch:{
 			$route (to){
-				const element = document.getElementById(to.path)
-				const {left, width} = element.getBoundingClientRect()
-				if (window.getComputedStyle(element).getPropertyValue('opacity') === '1') {
-					this.lineMoved = left
+				if (window.innerWidth < 700) {
+					this.activeMenu = false
 				}
 				else {
-					this.lineMoved = left + 20
+					const element = document.getElementById(to.path)
+					const {left, width} = element.getBoundingClientRect()
+					if (window.getComputedStyle(element).getPropertyValue('opacity') === '1') {
+						this.lineMoved = left
+					}
+					else {
+						this.lineMoved = left + 20
+					}
+					this.lineWidth = width
 				}
-				this.lineWidth = width
 			}
 		},
 		mounted() {
+			window.addEventListener("resize", () => {
+				if (window.innerWidth < 700 && this.activeMenu) {
+					this.activeMenu = false
+				}
+				else if (window.innerWidth >= 700) {
+					if (!this.activeMenu) {
+						this.activeMenu = true
+					}
+					const element = document.getElementById(this.$route.path)
+					if (element) {
+						const {left, width} = element.getBoundingClientRect()
+						this.lineMoved = left
+						this.lineWidth = width
+					}
+				}
+			});
+			if (window.innerWidth < 700) {
+				this.activeMenu = false
+			}
 			this.lineMoved = document.getElementById('/').getBoundingClientRect().left + 20
 			this.lineWidth = document.getElementById('/').getBoundingClientRect().width
 		}
@@ -57,13 +86,16 @@
 	.nav-component {
 		position: relative;
 		width: 100%;
-		height: 110px;
+		height: 90px;
 		max-width: 1000px;
 		display: flex;
 		justify-content: flex-end;
-		align-items: center;
+		align-items: flex-end;
 		margin: 0 auto;
-		padding: 0 20px;
+		padding: 10px 20px;
+		@media (min-width: 700px) {
+			height: 110px;
+		}
 		.logo {
 			position: absolute;
 			animation: preloader 1.3s both;
@@ -73,53 +105,124 @@
 			}
 		}
 		.nav-list {
-			height: 100%;
-			display: none;
-			align-items: flex-end;
+			position: fixed;
+			top: 90px;
+			left: 0;
+			width: 100%;
+			height: 300px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-color: rgb($bg, 0.9);
 			list-style: none;
-			padding-bottom: 10px;
+			z-index: 2;
+			transform-origin: top;
+			animation: mobileMenu 0.5s both;
 			.nav-item {
+				margin: 10px 0;
 				text-transform: uppercase;
-				margin: 0 10px;
 				font-size: 22px;
 				letter-spacing: 2px;
 				cursor: pointer;
 				&:nth-child(1) {
-					animation: leftElation 0.3s 1s both;
+					animation: bottomElation 0.3s 0.5s both;
 				}
 				&:nth-child(2) {
-					animation: leftElation 0.3s 1.1s both;
+					animation: bottomElation 0.3s 0.6s both;
 				}
 				&:nth-child(3) {
-					animation: leftElation 0.3s 1.2s both;
+					animation: bottomElation 0.3s 0.7s both;
 				}
 				&:nth-child(4) {
-					animation: leftElation 0.3s 1.3s both;
+					animation: bottomElation 0.3s 0.8s both;
 				}
 				.nav-link {
 					color: rgb($primary, 0.6);
 					text-decoration: none;
-					transition: all 0.2s ease;
-					&:hover {
-						color: $primary;
+					@media (hover: hover) {
+						transition: all 0.2s ease;
+						&:hover {
+							color: $primary;
+						}
 					}
 				}
 				.router-link-active {
 					color: $primary;
+					font-weight: bold;
 				}
 			}
 			@media (min-width: 700px) {
-				display: flex;
+				position: relative;
+				top: 0;
+				width: auto;
+				height: auto;
+				flex-direction: row;
+				align-items: flex-end;
+				background-color: transparent;
+				.nav-item {
+					margin: 0 10px;
+					&:nth-child(1) {
+						animation: leftElation 0.3s 1s both;
+					}
+					&:nth-child(2) {
+						animation: leftElation 0.3s 1.1s both;
+					}
+					&:nth-child(3) {
+						animation: leftElation 0.3s 1.2s both;
+					}
+					&:nth-child(4) {
+						animation: leftElation 0.3s 1.3s both;
+					}
+					.nav-link {
+						&:hover {
+							color: $primary;
+						}
+					}
+				}
 			}
 		}
-		.nav-list-mobile {
-			height: 100%;
-			display: flex;
-			align-items: flex-end;
-			padding-bottom: 10px;
-			font-size: 22px;
+		.hamburger-menu {
+			position: relative;
+			height: 21px;
+			width: 30px;
+			margin-bottom: 10px;
+			animation: leftElation 0.3s 1s both;
 			@media (min-width: 700px) {
 				display: none;
+			}
+			.hamburger-line {
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: $primary;
+				transition: all 0.4s ease-in-out, transform 0.2s ease-in-out;
+				&:nth-child(1) {
+					top: 0;
+				}
+				&:nth-child(2) {
+					top: calc(50% - 1px);
+					width: 70%;
+				}
+				&:nth-child(3) {
+					top: calc(100% - 1px);
+				}
+			}
+		}
+		.hamburger-active .hamburger-line {
+			transition: all 0.3s ease-in-out, transform 0.2s 0.25s ease-in-out;
+				&:nth-child(1) {
+				top: calc(50% - 1px);
+				transform: rotate(45deg);
+			}
+			&:nth-child(2) {
+				top: calc(50% - 1px);
+				width: 0;
+				opacity: 0;
+			}
+			&:nth-child(3) {
+				top: calc(50% - 1px);
+				transform: rotate(-45deg);
 			}
 		}
 		.line {

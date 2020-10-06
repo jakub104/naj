@@ -40,35 +40,46 @@
 		transform: translateX(0);
 	}
 }
+// COMPONENTS
 @keyframes preloader {
 	0% {
-		bottom: -250%;
+		bottom: -50vh;
 		left: 50%;
 		opacity: 0;
-		transform: translate(-50%, 0%) scale(2.8);
+		transform: translate(-50%, -50%) scale(2.8);
 	}
 	20% {
-		bottom: -250%;
+		bottom: -50vh;
 		left: 50%;
 		opacity: 1;
-		transform: translate(-50%, 0%) scale(3);
+		transform: translate(-50%, -50%) scale(3);
 	}
 	40% {
-		bottom: -250%;
+		bottom: -50vh;
 		left: 50%;
 		opacity: 1;
-		transform: translate(-50%, 0%) scale(3);
+		transform: translate(-50%, -50%) scale(3);
 	}
 	50% {
-		bottom: -250%;
+		bottom: -50vh;
 		left: 50%;
 		opacity: 1;
-		transform: translate(-50%, 0%) scale(3);
+		transform: translate(-50%, -50%) scale(3);
 	}
 	100% {
 		bottom: 0;
 		left: 20px;
 		opacity: 1;
 		transform: translate(0, 0) scale(1);
+	}
+}
+@keyframes mobileMenu {
+	0% {
+		transform: scaleY(0);
+		opacity: 0;
+	}
+	100% {
+		transform: scaleY(1);
+		opacity: 1;
 	}
 }

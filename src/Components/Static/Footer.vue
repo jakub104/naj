@@ -10,7 +10,7 @@
 				na-j@wp.pl
 			</div>
 		</div>
-		<div class="copyright-info">NA-J 2020 &copy;</div>
+		<div class="copyright-info">Na-J 2020 &copy;</div>
 	</footer>
 </template>
 
@@ -50,6 +50,7 @@
 		padding: 7px;
 		background-color: rgb($secondary, 0.5);
 		color: $primary;
+		animation: opacity 0.3s 1s both;
 		.contact {
 			display: flex;
 			justify-content: space-evenly;
@@ -81,7 +82,7 @@
 			font-size: 16px;
 			color: $primary;
 			font-weight: bold;
-			opacity: 0.4;
+			opacity: 0.5;
 		}
 	}
 </style>
