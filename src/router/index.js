@@ -5,22 +5,36 @@ import Home from '@/Views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('@/Views/About.vue')
-  }
+	// {
+	// 	path: '/',
+	// 	redirect: `/o-nas`
+	// },
+	{
+		path: '/',
+		name: 'Home',
+		component: Home
+	},
+	{
+		path: '/oferta',
+		name: 'Offer',
+		component: () => import('@/Views/Offer')
+	},
+	{
+		path: '/realizacje',
+		name: 'Realizations',
+		component: () => import('@/Views/Realizations')
+	},
+	{
+		path: '/kontakt',
+		name: 'Contact',
+		component: () => import('@/Views/Contact')
+	}
 ]
 
 const router = new VueRouter({
-  // mode: 'history',
-  base: '/',
-  routes
+	// mode: 'history',
+	base: '/',
+	routes
 })
 
 export default router
