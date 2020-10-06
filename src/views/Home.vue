@@ -2,14 +2,14 @@
 	<div class="home-view">
 		<img class="preview-image" :src="home" alt="home">
 		<div class="description">
-			Jesteśmy firmy remontowo-budowlaną, działamy na terenie województwa pomorskiego.
+			Jesteśmy firmą remontowo-budowlaną, działamy na terenie województwa pomorskiego.
 			Od ponad 13 lat pomagamy spełniać <b>Na-J</b>większe marzenia o własnym domu.
 			Dostosowujemy nasze usługi do potrzeb każdego inwestora.
-			Realizujemy budowy domów jednorodzinnych i wielorodzinnych od organizacji nadzoru budowlanego i placu budowy poprzez budowę fundamentów, murów, stropów, aż po dach.
-			Wykonujemy też remonty, docieplenia, elewacje, budujemy ogrodzenia i mury oporowe.
-			W całym procesie budowy doradzamy i wspieramy swoją wiedzą i doświadczeniem.
+			Realizujemy budowy domów jednorodzinnych i wielorodzinnych od organizacji nadzoru budowlanego i placu budowy poprzez wznoszenie fundamentów, murów, stropów, aż po dach.
+			Wykonujemy też docieplenia, elewacje, remonty; budujemy ogrodzenia i mury oporowe.
+			W całym procesie doradzamy i wspieramy swoją wiedzą i doświadczeniem.
 			Każdą inwestycję wykonujemy z <b>Na-J</b>wyższą starannością oraz pełnym zaangażowaniem.
-			Działamy zgodnie z zasadami sztuki budowlanej, korzystając ze sprawdzonych metod i materiałów budowlanych, dzięki czemu mamy pewność, że jakość naszych usług sprosta <b>Na-J</b>wyższym oczekiwaniom nawet <b>Na-J</b>bardziej wymagającego klienta.
+			Działamy zgodnie z zasadami sztuki budowlanej, korzystając ze sprawdzonych metod i materiałów, dzięki czemu mamy pewność, że jakość naszych usług sprosta <b>Na-J</b>wyższym oczekiwaniom nawet <b>Na-J</b>bardziej wymagającego klienta.
 		</div>
 		<div class="site-preview">
 			<div class="site-image" :style="{backgroundImage: `url(${offer})`}" />
@@ -66,7 +66,7 @@ export default {
 			max-width: 100%;
 		}
 		.description {
-			font-size: 18px;
+			font-size: 20px;
 			margin-bottom: 100px;
 		}
 		.site-preview {
