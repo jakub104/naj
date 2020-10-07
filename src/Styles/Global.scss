@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap');
 @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
 @import "@/Styles/Variables.scss";
+@import "@/Styles/Keyframes.scss";
 * {
 	box-sizing: border-box;
 	::after,
@@ -24,5 +25,41 @@ body {
 	ul {
 		margin: 0;
 		padding: 0;
+	}
+}
+input, button, textarea {
+	font-size: 16px;
+	font-family: 'Baloo 2', sans-serif;
+	color: $primary;
+}
+a {
+	text-decoration: none;
+	color: $primary;
+}
+.view {
+	width: 100%;
+	max-width: 1400px;
+	height: calc(100% - 160px);
+	margin: 0 auto;
+	padding: 20px 20px 60px 20px;
+	text-align: center;
+	animation: bottomElation 0.5s 1s both;
+	overflow-y: scroll;
+	@media (min-width: 700px) {
+		height: calc(100% - 180px);
+	}
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $secondary;
+		transition: all 0.3s ease;
+		border-bottom: 20px solid $bg;
+		&:hover {
+			background: $secondary;
+		}
+	}
+	&::-webkit-scrollbar-track {
+		background: transparent;
 	}
 }

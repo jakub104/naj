@@ -1,0 +1,17 @@
+[debug] [2020-10-07T10:59:47.252Z] ----------------------------------------------------------------------
+[debug] [2020-10-07T10:59:47.253Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jakub\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-10-07T10:59:47.254Z] CLI Version:   8.4.3
+[debug] [2020-10-07T10:59:47.254Z] Platform:      win32
+[debug] [2020-10-07T10:59:47.254Z] Node Version:  v13.9.0
+[debug] [2020-10-07T10:59:47.255Z] Time:          Wed Oct 07 2020 12:59:47 GMT+0200 (czas środkowoeuropejski letni)
+[debug] [2020-10-07T10:59:47.255Z] ----------------------------------------------------------------------
+[debug] [2020-10-07T10:59:47.255Z] 
+[debug] [2020-10-07T10:59:47.262Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-07T10:59:47.262Z] > authorizing via signed-in user
+[debug] [2020-10-07T10:59:47.262Z] [iam] checking project naczk-j for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2020-10-07T10:59:47.265Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/naczk-j:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2020-10-07T10:59:48.187Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 07 Oct 2020 10:59:46 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=703","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-07T10:59:48.188Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/naczk-j/serviceAccounts/naczk-j@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2020-10-07T10:59:49.097Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 07 Oct 2020 10:59:47 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}

@@ -1,5 +1,5 @@
 <template>
-	<div class="home-view">
+	<div class="view" :style="{animation: !$loaded ? 'bottomElation 0.5s 1s both' : 'bottomElation 0.5s both'}">
 		<img class="preview-image" :src="home" alt="home">
 		<div class="description">
 			Jesteśmy firmą remontowo-budowlaną, działamy na terenie województwa pomorskiego.
@@ -59,73 +59,75 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	.home-view {
-		animation: bottomElation 0.5s both;
-		.preview-image {
-			width: 700px;
+	.preview-image {
+		width: 700px;
+		max-width: 100%;
+	}
+	.description {
+		font-size: 20px;
+		margin-bottom: 100px;
+	}
+	.site-preview {
+		width: 100%;
+		max-width: 1300px;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin: 50px auto;
+		flex-wrap: wrap;
+		&:nth-child(even) {
+			flex-direction: row-reverse;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+		.site-image {
+			width: 550px;
 			max-width: 100%;
+			height: 350px;
+			background: no-repeat center center;
+			background-size: cover;
+			border-radius: 20px;
 		}
-		.description {
-			font-size: 20px;
-			margin-bottom: 100px;
-		}
-		.site-preview {
-			display: flex;
-			justify-content: space-around;
-			align-items: center;
-			margin: 50px 0;
-			flex-wrap: wrap;
-			&:nth-child(even) {
-				flex-direction: row-reverse;
-			}
-			.site-image {
-				width: 500px;
-				max-width: 100%;
-				height: 300px;
-				background: no-repeat center center;
-				background-size: cover;
-				border-radius: 20px;
-			}
-			.site-ad {
-				margin: 50px 30px;
-				width: 500px;
-				.site-title {
-					position: relative;
-					font-size: 25px;
-					margin: 0;
-					&::before {
-						content: '';
-						position: absolute;
-						bottom: 0;
-						left: 50%;
-						transform: translateX(-50%);
-						width: 30px;
-						height: 3px;
-						background-color: $secondary;
-						border-radius: 3px;
-					}
+		.site-ad {
+			margin: 50px 30px;
+			width: 450px;
+			.site-title {
+				position: relative;
+				font-size: 25px;
+				margin: 0;
+				&::before {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 30px;
+					height: 3px;
+					background-color: $secondary;
+					border-radius: 3px;
 				}
-				.site-description {
-					margin: 20px 0;
-				}
-				.site-link {
-					position: relative;
-					width: 130px;
-					display: block;
-					margin: 0 auto;
-					padding: 5px;
-					border: 3px solid $primary;
-					color: $primary;
-					border-radius: 30px;
-					text-transform: uppercase;
-					text-decoration: none;
-					font-weight: bold;
-					letter-spacing: 1px;
-					transition: 0.3s ease;
-					&:hover {
-						background-color: $primary;
-						color: $bg;
-					}
+			}
+			.site-description {
+				margin: 20px 0;
+			}
+			.site-link {
+				position: relative;
+				width: 130px;
+				display: block;
+				margin: 0 auto;
+				padding: 5px;
+				border: 3px solid $primary;
+				color: $primary;
+				border-radius: 30px;
+				text-transform: uppercase;
+				text-decoration: none;
+				font-weight: bold;
+				letter-spacing: 1px;
+				transition: 0.3s ease;
+				&:hover {
+					background-color: $primary;
+					color: $bg;
 				}
 			}
 		}

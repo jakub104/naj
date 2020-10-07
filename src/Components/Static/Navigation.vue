@@ -17,7 +17,7 @@
 				<router-link class="nav-link" to="/kontakt">Kontakt</router-link>
 			</li>
 		</ul>
-		<div class="line" :style="{left: `${lineMoved}px`, width: `${lineWidth}px`, opacity: lineMoved ? '1': '0'}"/>
+		<div class="line" :style="{left: `${lineMoved}px`, width: `${lineWidth}px`}"/>
 		<div :class="['hamburger-menu', {'hamburger-active': activeMenu}]" @click="activeMenu = !activeMenu">
 			<div class="hamburger-line" />
 			<div class="hamburger-line" />
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+	import Vue from 'vue'
 	import logo from '@/Assets/Images/logo/logo.svg'
 	export default {
 		name: "Navigation",
@@ -39,32 +40,30 @@
 			}
 		},
 		watch:{
-			$route (to){
+			$route(to){
+				const element = document.getElementById(to.path)
 				if (window.innerWidth < 700) {
 					this.activeMenu = false
 				}
-				else {
-					const element = document.getElementById(to.path)
+				else if (element) {
 					const {left, width} = element.getBoundingClientRect()
-					if (window.getComputedStyle(element).getPropertyValue('opacity') === '1') {
-						this.lineMoved = left
-					}
-					else {
-						this.lineMoved = left + 20
-					}
+					this.lineMoved = left
 					this.lineWidth = width
 				}
 			}
 		},
 		mounted() {
+			setTimeout(() => {
+				Vue.prototype.$loaded = true
+			}, 1500)
 			if (window.innerWidth < 700) {
 				this.activeMenu = false
 			}
 			else {
 				setTimeout(() => {
-					this.lineMoved = document.getElementById('/').getBoundingClientRect().left
-					this.lineWidth = document.getElementById('/').getBoundingClientRect().width
-				}, 1500)
+					this.lineMoved = document.getElementById(this.$route.path).getBoundingClientRect().left
+					this.lineWidth = document.getElementById(this.$route.path).getBoundingClientRect().width
+				}, 1600)
 			}
 			window.addEventListener("resize", () => {
 				if (window.innerWidth < 700 && this.activeMenu) {
@@ -256,6 +255,7 @@
 			display: none;
 			background-color: $primary;
 			transition: all 0.5s ease;
+			animation: opacity 0.3s 2s both;
 			@media (min-width: 700px) {
 				display: flex;
 			}
