@@ -211,12 +211,15 @@
 				text-transform: uppercase;
 				letter-spacing: 1px;
 				color: $logo;
-				background-color: rgb($secondary, 0.5);
+				background-color: $bg;
 				font-weight: bold;
 				font-size: 18px;
 				cursor: pointer;
 				.submit-icon {
 					margin-left: 3px;
+				}
+				&:hover {
+					background-color: rgb($secondary, 0.5);
 				}
 			}
 		}

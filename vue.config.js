@@ -1,11 +1,11 @@
 module.exports = {
 	publicPath: process.env.NODE_ENV === 'production' ? '/naj/' : '/',
 		pwa: {
-			name: 'NA-J',
-			themeColor: '#202020',
-			msTileColor: '#000000',
+			name: 'Na-J',
+			themeColor: '#ffffff',
+			msTileColor: '#ffffff',
 			appleMobileWebAppCapable: 'yes',
-			appleMobileWebAppStatusBarStyle: '#202020'
+			appleMobileWebAppStatusBarStyle: '#ffffff'
 		},
 		css: {
 			loaderOptions: {

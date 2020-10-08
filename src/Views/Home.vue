@@ -98,7 +98,7 @@ export default {
 			width: 450px;
 			.site-title {
 				position: relative;
-				font-size: 25px;
+				font-size: 30px;
 				margin: 0;
 				&::before {
 					content: '';

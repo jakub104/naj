@@ -101,8 +101,20 @@
 			width: 450px;
 			margin: 30px 0;
 			.order-title {
+				position: relative;
 				margin: 0;
 				font-size: 30px;
+				&::before {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 30px;
+					height: 3px;
+					background-color: $secondary;
+					border-radius: 3px;
+				}
 			}
 			.order-desctiption {
 				margin: 20px 0;
