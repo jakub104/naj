@@ -8,18 +8,18 @@
 		/>
 		<div class="view" :style="{animation: !$loaded ? 'bottomElation 0.5s 1s both' : 'bottomElation 0.5s both'}">
 			<Order
-				title="Spełniamy Marzenia"
+				title="Wznosimy"
 				content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum possimus quia soluta quisquam minus voluptas iste temporibus praesentium reprehenderit ducimus. Aperiam maxime accusantium distinctio nam, eveniet modi quo non rem."
-				id="swimmingPool"
-				:images="photos.swimmingPool"
-				:primaryIndex="6"
+				id="terracedHouse"
+				:images="photos.terracedHouse"
+				:primaryIndex="4"
 				@photo-selected="selectPhoto"
 			/>
 			<Order
 				title="Budujemy"
 				content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum possimus quia soluta quisquam minus voluptas iste temporibus praesentium reprehenderit ducimus. Aperiam maxime accusantium distinctio nam, eveniet modi quo non rem."
-				id="swimmingPool"
-				:images="photos.swimmingPool"
+				id="buildingAHouse"
+				:images="photos.buildingAHouse"
 				:primaryIndex="4"
 				@photo-selected="selectPhoto"
 			/>
@@ -39,6 +39,14 @@
 				:primaryIndex="1"
 				@photo-selected="selectPhoto"
 			/>
+			<Order
+				title="Spełniamy Marzenia"
+				content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum possimus quia soluta quisquam minus voluptas iste temporibus praesentium reprehenderit ducimus. Aperiam maxime accusantium distinctio nam, eveniet modi quo non rem."
+				id="swimmingPool"
+				:images="photos.swimmingPool"
+				:primaryIndex="6"
+				@photo-selected="selectPhoto"
+			/>
 		</div>
 	</fragment>
 </template>
@@ -55,6 +63,7 @@
 	const buildingAHouse = importAll(require.context('@/Assets/Images/realizations/building-a-house', false, /\.(png|jpe?g|svg)$/));
 	const renovation = importAll(require.context('@/Assets/Images/realizations/renovation', false, /\.(png|jpe?g|svg)$/));
 	const vestibules = importAll(require.context('@/Assets/Images/realizations/vestibules', false, /\.(png|jpe?g|svg)$/));
+	const terracedHouse = importAll(require.context('@/Assets/Images/realizations/terraced-house', false, /\.(png|jpe?g|svg)$/));
 
 	export default {
 		name: "Realizations",
@@ -69,13 +78,13 @@
 					buildingAHouse,
 					renovation,
 					vestibules,
+					terracedHouse
 				},
 				gallery: {}
 			}
 		},
 		methods: {
 			changeIndex(number) {
-				console.log('działa')
 				this.gallery.index += number
 			},
 			closeGallery() {

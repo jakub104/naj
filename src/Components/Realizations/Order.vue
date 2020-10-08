@@ -16,7 +16,7 @@
 		<div class="order-specification">
 			<h3 class="order-title">{{title}}</h3>
 			<p class="order-description">{{content}}</p>
-			<button @click="$emit('photo-selected', id, 0)">Zobacz galerię</button>
+			<button class="order-button" @click="$emit('photo-selected', id, 0)">Zobacz galerię</button>
 		</div>
 	</div>
 </template>
@@ -88,9 +88,11 @@
 					background-size: cover;
 					transition: all 0.3s ease;
 					cursor: pointer;
-					&:hover {
-						transform: scale(1.1);
-						opacity: 0.8;
+					@media (hover: hover) {
+						&:hover {
+							transform: scale(1.1);
+							opacity: 0.8;
+						}
 					}
 				}
 			}
@@ -106,7 +108,26 @@
 				margin: 20px 0;
 			}
 			.order-button {
-
+				position: relative;
+				width: 200px;
+				display: block;
+				margin: 0 auto;
+				padding: 5px;
+				border: 3px solid $primary;
+				background-color: $bg;
+				color: $primary;
+				border-radius: 30px;
+				text-transform: uppercase;
+				text-decoration: none;
+				font-size: 18px;
+				font-weight: bold;
+				letter-spacing: 1px;
+				transition: 0.3s ease;
+				cursor: pointer;
+				&:hover {
+					background-color: $primary;
+					color: $bg;
+				}
 			}
 		}
 	}

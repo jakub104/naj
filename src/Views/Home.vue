@@ -61,7 +61,11 @@ export default {
 <style lang="scss" scoped>
 	.preview-image {
 		width: 700px;
+		height: 400px;
 		max-width: 100%;
+		max-height: calc((100vw - 40px) * 0.57);
+		object-fit: contain;
+		border-radius: 20px;
 	}
 	.description {
 		font-size: 20px;

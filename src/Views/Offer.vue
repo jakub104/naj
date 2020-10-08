@@ -1,7 +1,13 @@
 <template>
 	<div class="view" :style="{animation: !$loaded ? 'bottomElation 0.5s 1s both' : 'bottomElation 0.5s both'}">
-		Oferta
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate reprehenderit iure perspiciatis vero. Iure ipsa culpa, atque vero similique aut, esse nulla, est ab explicabo nesciunt libero officia. Laudantium, commodi?</p>
+		<h3>W naszej ofercie znajduje się między innymi:</h3>
+		<ul>
+			<li>Budowa domów</li>
+			<li>Remonty</li>
+			<li>Mury oporowe</li>
+			<li>Elewacje</li>
+			<li>Docieplenia</li>
+		</ul>
 	</div>
 </template>
 
