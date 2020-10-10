@@ -96,6 +96,7 @@
 		align-items: flex-end;
 		margin: 0 auto;
 		padding: 10px 20px;
+		z-index: 2;
 		@media (min-width: 700px) {
 			height: 110px;
 		}
@@ -119,7 +120,6 @@
 			justify-content: center;
 			background-color: rgb($bg, 0.9);
 			list-style: none;
-			z-index: 2;
 			transform-origin: top;
 			animation: mobileMenu 0.5s both;
 			border-bottom: 2px solid $primary;

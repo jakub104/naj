@@ -1,40 +1,32 @@
 <template>
 	<div class="order-component">
-		<div class="gallery-preview">
-			<div class="primary-image-wrapper" @click="$emit('photo-selected', id, primaryIndex)">
-				<div class="primary-image" :style="{backgroundImage: `url(${images[primaryIndex].image})`}" />
-			</div>
-			<div
-				class="secondary-image-wrapper"
-				v-for="(image, index) in filteredImages.slice(0, 3)"
-				:key="index + 1"
-				@click="$emit('photo-selected', id, image.id)"
-			>
-				<div class="secondary-image" :style="{backgroundImage: `url(${image.image})`}" />
-			</div>
-		</div>
-		<div class="order-specification">
-			<h3 class="order-title">{{title}}</h3>
-			<p class="order-description">{{content}}</p>
-			<button class="order-button" @click="$emit('photo-selected', id, 0)">Zobacz galerię</button>
-		</div>
+		<GalleryPreview
+			:images="images"
+			:primaryIndex="primaryIndex"
+			:id="id"
+			:big="false"
+			@photo-selected="(id, index) => $emit('photo-selected', id, index)"
+		/>
+		<h4 class="order-title">{{title}}</h4>
 	</div>
 </template>
 
 <script>
+	import GalleryPreview from '@/Components/Realizations/GalleryPreview'
 	export default {
 		name: "Order",
 		props: {
 			title: String,
-			content: String,
 			id: String,
 			images: Array,
 			primaryIndex: Number,
 		},
+		components: {
+			GalleryPreview
+		},
 		data() {
 			return {
-				filteredImages: this.images.filter((image, index) => index !== this.primaryIndex),
-				galleryWidth: 0
+				
 			}
 		}
 	}
@@ -42,105 +34,21 @@
 
 <style lang="scss" scoped>
 	.order-component {
-		width: 100%;
-		max-width: 1300px;
+		width: 350px;
 		display: flex;
-		justify-content: space-around;
+		flex-direction: column;
 		align-items: center;
-		margin: 50px auto;
-		flex-wrap: wrap;
-		&:nth-child(even) {
-			flex-direction: row-reverse;
+		background-color: $bg;
+		padding: 20px;
+		margin: 20px;
+		border-radius: 20px;
+		box-shadow: 0 0 20px $secondary;
+		transition: all 0.3s ease;
+		&:hover {
+			transform: scale(1.03);
 		}
-		.gallery-preview {
-			width: 100%;
-			max-width: 500px;
-			height: 500px;
-			max-height: calc(100vw - 40px);
-			display: grid;
-			grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-			grid-gap: 10px;
-			.primary-image-wrapper {
-				overflow: hidden;
-				border-radius: 30px 30px 10px 10px;
-				grid-column: 1 / 4;
-				grid-row: 1 / 3;
-				.primary-image {
-					width: 100%;
-					height: 100%;
-					background: $secondary center center no-repeat;
-					background-size: cover;
-					transition: all 0.3s ease;
-					cursor: pointer;
-					&:hover {
-						transform: scale(1.1);
-						opacity: 0.8;
-					}
-				}
-			}
-			.secondary-image-wrapper {
-				overflow: hidden;
-				border-radius: 10px;
-				.secondary-image {
-					width: 100%;
-					height: 100%;
-					background: $secondary center center no-repeat;
-					background-size: cover;
-					transition: all 0.3s ease;
-					cursor: pointer;
-					@media (hover: hover) {
-						&:hover {
-							transform: scale(1.1);
-							opacity: 0.8;
-						}
-					}
-				}
-			}
-		}
-		.order-specification {
-			width: 450px;
-			margin: 30px 0;
-			.order-title {
-				position: relative;
-				margin: 0;
-				font-size: 30px;
-				&::before {
-					content: '';
-					position: absolute;
-					bottom: 0;
-					left: 50%;
-					transform: translateX(-50%);
-					width: 30px;
-					height: 3px;
-					background-color: $secondary;
-					border-radius: 3px;
-				}
-			}
-			.order-desctiption {
-				margin: 20px 0;
-			}
-			.order-button {
-				position: relative;
-				width: 200px;
-				display: block;
-				margin: 0 auto;
-				padding: 5px;
-				border: 3px solid $primary;
-				background-color: $bg;
-				color: $primary;
-				border-radius: 30px;
-				text-transform: uppercase;
-				text-decoration: none;
-				font-size: 18px;
-				font-weight: bold;
-				letter-spacing: 1px;
-				transition: 0.3s ease;
-				cursor: pointer;
-				&:hover {
-					background-color: $primary;
-					color: $bg;
-				}
-			}
+		.order-title {
+			margin: 20px 0 0 0;
 		}
 	}
 </style>

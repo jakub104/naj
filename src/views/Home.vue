@@ -3,19 +3,21 @@
 		<img class="preview-image" :src="home" alt="home">
 		<div class="description">
 			Jesteśmy firmą remontowo-budowlaną, działamy na terenie województwa pomorskiego.
-			Od ponad 13 lat pomagamy spełniać <b>Na-J</b>większe marzenia o własnym domu.
+			Od ponad 13 lat pomagamy spełniać <strong>Na-J</strong>większe marzenia o własnym domu.
 			Dostosowujemy nasze usługi do potrzeb każdego inwestora.
 			Realizujemy budowy domów jednorodzinnych i wielorodzinnych od organizacji nadzoru budowlanego i placu budowy poprzez wznoszenie fundamentów, murów, stropów, aż po dach.
 			Wykonujemy też docieplenia, elewacje, remonty; budujemy ogrodzenia i mury oporowe.
 			W całym procesie doradzamy i wspieramy swoją wiedzą i doświadczeniem.
-			Każdą inwestycję wykonujemy z <b>Na-J</b>wyższą starannością oraz pełnym zaangażowaniem.
-			Działamy zgodnie z zasadami sztuki budowlanej, korzystając ze sprawdzonych metod i materiałów, dzięki czemu mamy pewność, że jakość naszych usług sprosta <b>Na-J</b>wyższym oczekiwaniom nawet <b>Na-J</b>bardziej wymagającego klienta.
+			Każdą inwestycję wykonujemy z <strong>Na-J</strong>wyższą starannością oraz pełnym zaangażowaniem.
+			Działamy zgodnie z zasadami sztuki budowlanej, korzystając ze sprawdzonych metod i materiałów, dzięki czemu mamy pewność, że jakość naszych usług sprosta <strong>Na-J</strong>wyższym oczekiwaniom nawet <strong>Na-J</strong>bardziej wymagającego klienta.
 		</div>
 		<div class="site-preview">
 			<div class="site-image" :style="{backgroundImage: `url(${offer})`}" />
 			<div class="site-ad">
 				<h3 class="site-title">Oferta</h3>
-				<p class="site-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, officia ullam libero ad nisi nulla. Nemo, doloribus! Aperiam assumenda vitae culpa dicta magnam! Nulla numquam unde excepturi nesciunt magnam a?</p>
+				<p class="site-description">
+					Jako firma z 13-letnim doświadczeniem, jesteśmy zdolni do wykonania <strong>Na-J</strong>różniejszych zleceń. Przekonaj się o tym sprawdzając naszą ofertę.
+				</p>
 				<router-link to="/oferta" class="site-link">Sprawdź</router-link>
 			</div>
 		</div>
@@ -23,7 +25,9 @@
 			<div class="site-image" :style="{backgroundImage: `url(${realizations})`}" />
 			<div class="site-ad">
 				<h3 class="site-title">Realizacje</h3>
-				<p class="site-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, officia ullam libero ad nisi nulla. Nemo, doloribus! Aperiam assumenda vitae culpa dicta magnam! Nulla numquam unde excepturi nesciunt magnam a?</p>
+				<p class="site-description">
+					Opinie klientów oraz efekty naszej pracy są <strong>Na-J</strong>lepszym dowodem na jakość naszych usług. Zobacz nasze realizacje i przekonaj się sam.
+				</p>
 				<router-link to="/realizacje" class="site-link">Sprawdź</router-link>
 			</div>
 		</div>
@@ -31,7 +35,9 @@
 			<div class="site-image" :style="{backgroundImage: `url(${contact})`}" />
 			<div class="site-ad">
 				<h3 class="site-title">Kontakt</h3>
-				<p class="site-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, officia ullam libero ad nisi nulla. Nemo, doloribus! Aperiam assumenda vitae culpa dicta magnam! Nulla numquam unde excepturi nesciunt magnam a?</p>
+				<p class="site-description">
+					Zainteresowany? A może potrzebujesz więcej informacji? Zapraszamy do kontaktu. Nie czekaj, już dziś dołącz do grona <strong>Na-J</strong>szczęśliwszych klientów!
+				</p>
 				<router-link to="/kontakt" class="site-link">Sprawdź</router-link>
 			</div>
 		</div>
@@ -98,6 +104,7 @@ export default {
 			width: 450px;
 			.site-title {
 				position: relative;
+				display: inline-block;
 				font-size: 30px;
 				margin: 0;
 				&::before {
@@ -106,13 +113,14 @@ export default {
 					bottom: 0;
 					left: 50%;
 					transform: translateX(-50%);
-					width: 30px;
+					width: 30%;
 					height: 3px;
 					background-color: $secondary;
 					border-radius: 3px;
 				}
 			}
 			.site-description {
+				font-size: 19px;
 				margin: 20px 0;
 			}
 			.site-link {

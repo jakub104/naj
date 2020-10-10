@@ -68,7 +68,11 @@
 					email: this.email,
 					content: this.content
 				})
-				window.open(`mailto:na-j@wp.pl?subject=${this.name}%20${this.email}&body=${this.content.replace(/\n/g, '%0A')}`);
+				window.open(`mailto:na-j@wp.pl?subject=${this.name}&body=${this.content.replace(/\n/g, '%0A')}`);
+				// const sayHello = this.$fu.httpsCallable('sayHello')
+				// sayHello({name: 'Jakub'}).then(result => {
+				// 	console.log(result.data)
+				// })
 			}
 		}
 	}
